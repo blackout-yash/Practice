@@ -21,6 +21,7 @@ int solve(int arr[], int n, int sum, vector<vector <long long>> &dp) {
     return dp[n][sum] = (ans1 % mod + ans2 % mod) % mod;
 }
 
+// Bottom Up
 int perfectSum1(int arr[], int n, int sum) {
     vector <vector <long long>> dp(n + 1, vector <long long> (sum + 1, -1));
     return solve(arr, n, sum, dp);
@@ -28,6 +29,7 @@ int perfectSum1(int arr[], int n, int sum) {
 
 
 
+// Top Down
 int perfectSum2(int arr[], int N, int sum) {
     long long dp[N + 1][sum + 1], mod = (1e9) + 7;
 
