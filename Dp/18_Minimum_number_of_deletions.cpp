@@ -23,7 +23,7 @@ int solve(string &A, string &B, int n, int m, vector <vector <int>> &dp) {
 
 
 // Top Down
-int minDeletions2(string A, int n)  {
+int minDeletions1(string A, int n)  {
 	string temp = A;
 	reverse(A.begin(), A.end());
 	string B = A; A = temp;
@@ -65,7 +65,9 @@ int main() {
 	while (t--) {
 		string A;
 		cin >> A;
-		cout << minDeletions1(A) << " " << minDeletions2(A) << "\n";
+		
+		int n = A.size();
+		cout << minDeletions1(A, n) << " " << minDeletions2(A, n) << "\n";
 	}
 	return 0;
 }
