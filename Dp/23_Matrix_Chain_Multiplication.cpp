@@ -20,7 +20,7 @@ int solve(int arr[], int i, int j, vector <vector <int>> &dp) {
 }
 
 
-// Dp with Memoization
+// Top Down
 int matrixMultiplication(int N, int arr[]) {
 	vector <vector <int>> dp(N - 1, vector <int>(N, -1));
 	return solve(arr, 1, N - 1, dp);
