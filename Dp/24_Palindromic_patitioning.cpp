@@ -37,10 +37,33 @@ int solve(string &str, int i, int j, vector <vector <int>> &dp) {
 
 
 // Top Down
-int palindromicPartition(string str) {
+int palindromicPartition1(string str) {
 	int n = str.size();
 	vector <vector <int>> dp(n, vector <int>(n, -1));
 	return solve(str, 0, n - 1, dp);
+}
+
+
+// Bottom Up
+int palindromicPartition2(string str) {
+	int n = str.size(), dp[n][n];
+
+	for (int i = n - 1; i >= 0; --i) {
+		for (int j = 0; j < n; ++j) {
+			if (i >= j) dp[i][j] = 0;
+			else {
+				if (isPalidrome(str, i, j)) dp[i][j] = 0;
+				else {
+					int minimum = INT_MAX;
+					for (int k = i; k < j; ++k) {
+						minimum = min(minimum, dp[i][k] + dp[k + 1][j] + 1);
+					}
+					dp[i][j] = minimum;
+				}
+			}
+		}
+	}
+	return dp[0][n - 1];
 }
 
 
@@ -51,7 +74,7 @@ int main() {
 		string str;
 		cin >> str;
 
-		cout << palindromicPartition(str) << " ";
+		cout << palindromicPartition1(str) << " " << palindromicPartition2(str) << "\n";
 	}
 
 	return 0;
