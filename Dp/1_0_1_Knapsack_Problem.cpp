@@ -1,5 +1,10 @@
-// 						0 - 1 Knapsack Problem
+// 0 - 1 Knapsack Problem
 // Link - https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1#
+
+// D - Knapsack 1
+// Link - https://atcoder.jp/contests/dp/tasks/dp_d
+
+
 // Complexity - O(N*W)
 
 
@@ -21,14 +26,14 @@ int solve1(int W, int wt[], int val[], int n, vector <vector <int>> &dp) {
 	return dp[n][W] = max(ans1, ans2);
 }
 
-// Bottom Up
+// Top Down
 int knapSack1(int W, int wt[], int val[], int n) {
 	vector <vector <int>> dp(n + 1, vector <int> (W + 1, -1));
 
 	return solve1(W, wt, val, n - 1, dp);
 }
 
-// Top Down
+// Bottom Up
 int knapSack2(int W, int wt[], int val[], int n) {
 	int dp[n + 1][W + 1];
 
